@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2 class="fw-bold">My Custom Packs</h2>
+        <p class="text-muted">Select a pack to start editing your iPhone 17 layout.</p>
+    </div>
+    
+    {% for theme in themes %}
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm h-100" style="border-radius: 15px;">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-bold">{{ theme.name }}</h5>
+                <span class="badge bg-light text-primary mb-3">{{ theme.category }}</span>
+                <br>
+                <a href="/edit/{{ theme.name }}" class="btn btn-dark w-100 rounded-pill">Open Editor</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

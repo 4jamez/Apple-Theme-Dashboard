@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item active">{{ name }}</li>
+            </ol>
+        </nav>
+        <h2 class="fw-bold">Editing: {{ name }}</h2>
+        <p class="text-muted">
+            <i class="fi fi-rr-info me-1"></i> 
+            <strong>How to use:</strong> Long-press any icon below and select <strong>"Save to Photos"</strong>. Then, open the iOS <strong>Shortcuts</strong> app to apply it to your app.
+        </p>
+    </div>
+
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-4">
+        {% for icon in icons %}
+        <div class="col text-center">
+            <div class="card border-0 bg-transparent">
+                <img src="{{ icon.url }}" 
+                     class="img-fluid rounded-4 shadow-sm mb-2 mx-auto" 
+                     style="width: 80px; height: 80px; object-fit: cover; border: 1px solid #eee;"
+                     alt="{{ icon.app }}">
+                <p class="small fw-medium mb-0">{{ icon.app }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-12 mt-5 border-top pt-4">
+        <h5>Need more icons?</h5>
+        <p class="text-muted">You can find millions of free PNGs on <a href="https://www.flaticon.com" target="_blank">Flaticon</a> to add to your collection.</p>
+    </div>
+</div>
+{% endblock %}
